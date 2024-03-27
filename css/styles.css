@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-background: #f8edeb;
+    --color-highlight: #fec89a;
+    --color-primary-text: #463f3a;
+    --color-secondary-text: #ddbea9;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-size: 12px;
+    background-color: var(--color-background);
+}
+
+body {
+    font-family: 'Mukta', sans-serif;
+}
+
+#header {
+    display: flex;
+    margin: 1.5em;
+    padding: .5em;
+    border-radius: .8em;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-highlight);
+}
+
+.teste {
+    height: 9999px;
+}
+
+.hamburguer-menu {
+    display: none;
+}
+
+@media (max-width: 560px) {
+    #header {
+        background-color: transparent;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: end;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: var(--color-highlight);
+        clip-path: circle(100px at 90% -20%);
+        pointer-events: none;
+        transition: .6s ease-out;
+    }
+
+    .nav-links a {
+        display: flex;
+        padding: 8vh 1vmax 8vh 0;
+        background-clip: text;
+        text-align: center;
+    }
+    
+    .hamburguer-menu {
+        display: block;
+        padding: 0;
+        margin: 0 .4rem .4rem .4rem;
+        border: none;
+        border-top: 3px solid var(--color-primary-text);
+        background: transparent;
+        transition: all .3s ease-in-out;
+        z-index: 1;
+    }
+    
+    .hamburguer-menu:hover {
+        opacity: .8;
+        cursor: pointer;
+    }
+    
+    .hamburguer-menu::before,
+    .hamburguer-menu::after {
+        content: "";
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin-top: .6rem;
+        background: var(--color-primary-text);
+    }
+    
+    
+    /* ATIVO */
+    .nav.active .nav-links {
+        clip-path: circle(1400px at 90% -18%);
+        pointer-events: all;
+
+    }
+    
+    .nav.active .hamburguer-menu {
+        border-top-color: transparent;
+    }
+    
+    .nav.active .hamburguer-menu::before {
+        transition: all .2s ease-in-out;
+        transform: rotate(-45deg) translate(-2px, -1px);
+    }
+    
+    .nav.active .hamburguer-menu::after {
+        transition: all .2s ease-in-out;
+        transform: rotate(45deg) translate(-7px, -5px);
+    }
+    
+}
+
+.header-title h1 {
+    font-size: 2em;
+}
+
+
+
+.nav {
+    max-width: 65vw;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.nav-links a { 
+    font-size: 2em;
+}
